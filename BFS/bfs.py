@@ -14,17 +14,23 @@ class Graph:
         
         for i in range(0, self.numEdges):
             u, v = [int(x) for x in input("Enter two value: ").split()]
+
+            # undirected Graph
             self.graph[u].append(v)
             self.graph[v].append(u)
         
     def bfs(self, source):
-
+       
+        # Marked all unvisited
         visited = [False] * (self.numNodes + 1)
         # print(max(self.graph))
         distances = [None] * (self.numNodes + 1)
         
+        # initialize Queue
         queue = []
         queue.append(source)
+
+        # marked source visited
         visited[source] = True
         distances[source] = 0
 
