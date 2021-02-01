@@ -9,7 +9,7 @@ class Graph:
         self.numEdges = None
 
     def buildGraph(self):
-        
+
         self.numNodes = int(input("Number of nodes: "))
         self.numEdges = int(input("Number of edges: "))
         
@@ -19,52 +19,45 @@ class Graph:
             # undirected Graph
             self.graph[u].append(v)
             self.graph[v].append(u)
+    
+    def bicoloring(self, source):
         
-    def bfs(self, source):
-       
-        # Marked all unvisited
-        visited = [False] * (self.numNodes + 1)
-        # print(max(self.graph))
-        distances = [None] * (self.numNodes + 1)
-        
-        # initialize Queue
+        # color = 0(white)
+        # color = 1(red)
+        # color = 2 (blue)
+
+        color = [0] * (self.numNodes + 1)
         queue = []
+        color[source] = 1
         queue.append(source)
-
-        # marked source visited
-        visited[source] = True
-        distances[source] = 0
-
+        
 
         while queue:
 
             u = queue.pop(0)
-            print(u, end = " ")
 
+            #traverse the graph
             for v in self.graph[u]:
-                if visited[v] == False:
+
+                if color[v] == 0:
+                    if color[u] == 1:
+                        color[v] = 2
+                    else:
+                        color[v] = 1
+                    
                     queue.append(v)
-                    visited[v] = True
-                    distances[v] = distances[u] + 1
+                
+                if color[v] == color[u]:
+                    return False
         
-        print("\nSource to destinations distance.\n")
-        for i in range(1, self.numNodes + 1):
-            print("{} -----> {} = {}".format(source, i, distances[i]))
+        return True
 
-
-# Driver Code
-
+# driver code
 g = Graph()
 g.buildGraph()
 source = int(input("Source: "))
-print("Breath First Traversal (starting from {})".format(source))
-g.bfs(source)
 
-
-
-
-        
-
-
-    
-
+if g.bicoloring(source):
+    print("Yes, graph is bicolorable.")
+else:
+    print("No, graph is not bicolorable.")
