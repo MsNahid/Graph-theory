@@ -1,21 +1,46 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/python,git
-# Edit at https://www.toptal.com/developers/gitignore?templates=python,git
+# Created by https://www.toptal.com/developers/gitignore/api/c++,python
+# Edit at https://www.toptal.com/developers/gitignore?templates=c++,python
 
-### Git ###
-# Created by git for backups. To disable backups in Git:
-# $ git config --global mergetool.keepBackup false
-*.orig
+### C++ ###
+# Prerequisites
+*.d
 
-# Created by git when using merge tools for conflicts
-*.BACKUP.*
-*.BASE.*
-*.LOCAL.*
-*.REMOTE.*
-*_BACKUP_*.txt
-*_BASE_*.txt
-*_LOCAL_*.txt
-*_REMOTE_*.txt
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Linker files
+*.ilk
+
+# Debugger Files
+*.pdb
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
@@ -24,7 +49,6 @@ __pycache__/
 *$py.class
 
 # C extensions
-*.so
 
 # Distribution / packaging
 .Python
@@ -157,4 +181,4 @@ dmypy.json
 # profiling data
 .prof
 
-# End of https://www.toptal.com/developers/gitignore/api/python,git
+# End of https://www.toptal.com/developers/gitignore/api/c++,python
