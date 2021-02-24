@@ -72,14 +72,14 @@ int main(){
 
     init(graph, next, numNodes);
     
-    for(int i = 1; i <= numNodes; i++){
-        for(int j = 1; j <= numNodes; j++){
-            cout << next[i][j] << '\t';
-        }
-        putchar('\n');
-    }
-    puts("");
-    puts("\n\n");
+    // for(int i = 1; i <= numNodes; i++){
+    //     for(int j = 1; j <= numNodes; j++){
+    //         cout << next[i][j] << '\t';
+    //     }
+    //     putchar('\n');
+    // }
+    // puts("");
+    // puts("\n\n");
 
     for(int i = 1; i <= numEdges; i++){
         int u, v, w;
