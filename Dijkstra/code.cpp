@@ -52,9 +52,6 @@ void dijkstra(const vector<int> g[], vector<int> c [], const int nodes, int sour
     for(int i = 1; i <= nodes; i++){
         cout << "Source " << source << "->" << i << " distance " << distances[i] << endl;
     }
-
-
-
 }
 
 int main(){
@@ -76,6 +73,4 @@ int main(){
     dijkstra(edges, cost, numOfNodes, source);
 
     return 0;
-
-
 }
