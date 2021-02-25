@@ -59,12 +59,3 @@ g.buildGraph()
 source = int(input("Source: "))
 print("Breath First Traversal (starting from {})".format(source))
 g.bfs(source)
-
-
-
-
-        
-
-
-    
-

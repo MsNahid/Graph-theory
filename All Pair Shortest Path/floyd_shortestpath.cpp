@@ -31,13 +31,11 @@ void floyd_warshall(int numNodes, int graph[][MX], int next[][MX]){
                 if(graph[i][j] > graph[i][k] + graph[k][j]){
                     next[i][j] = next[i][k];
                 }
-                graph[i][j] = min(graph[i][j], graph[i][k] + graph[k][j]);
-               
+                graph[i][j] = min(graph[i][j], graph[i][k] + graph[k][j]);  
             }
         }
     }
 }
-
 
 vector<int> findPath(int i, int j, int next[][MX]){
     vector<int> path;
