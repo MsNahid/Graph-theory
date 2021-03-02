@@ -59,5 +59,6 @@ int main(){
 		    graphCheck(i);
 		}
 	}
+    
 	return 0;
 }
