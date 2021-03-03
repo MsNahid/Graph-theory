@@ -5,7 +5,6 @@ using namespace std;
 
 #define UNVISITED -1
 #define EXPLORED 1
-#define VISITED 2 
 
 vector<int> graph[SZ];
 typedef vector<int> vi;
@@ -14,23 +13,22 @@ vi dfs_num, parent;
 int cycle_start, cycle_end;
 int numC = 0;
 
-bool dfs(int u){
+bool dfs(int u, int par){
     
     dfs_num[u] = EXPLORED;
     for(int v : graph[u]){
-        if(dfs_num[v] == UNVISITED){
-            parent[v] = u;
-            if(dfs(v)){
-                return true;
-            }
-        }else if(dfs_num[v] == EXPLORED){
+        if(v == par) continue;
+        if(dfs_num[v] == EXPLORED){
             cycle_start = v;
             cycle_end = u;
             return true;
         }
+        parent[v] = u;
+        if(dfs(v, parent[v])){
+            return true;
+        }
 
     }
-    dfs_num[u] = VISITED;
     return false;
 
 }
@@ -40,7 +38,7 @@ void find_cycle(int numNodes, int vertex){
     cycle_start = -1;
 
     for(int u = vertex; u <= numNodes; u++){
-        if(dfs_num[u] == UNVISITED && dfs(u)){
+        if(dfs_num[u] == UNVISITED && dfs(u, parent[u])){
             break;
         }
     }
@@ -78,6 +76,7 @@ int main(){
     for(int i = 1; i <= numEdges; i++){
         cin >> u >> v;
         graph[u].push_back(v);
+        graph[v].push_back(u);
     }
 
     for(int u = 1; u <= numNodes; u++){
